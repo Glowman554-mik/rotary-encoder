@@ -15,11 +15,16 @@ add_executable(${APP_TARGET})
 
 mbed_configure_app_target(${APP_TARGET})
 
+include(hwlcd/hwlcd.cmake)
+
+include_directories(hwlcd/include)
+
 project(${APP_TARGET})
 
 target_sources(${APP_TARGET}
     PRIVATE
         main.cpp
+        ${HWLCD_SRC}
 )
 
 target_link_libraries(${APP_TARGET}
